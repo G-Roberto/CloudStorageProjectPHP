@@ -41,12 +41,20 @@
 			echo 'Username exists, please choose another!';
 		} else {
 			// Username doesn't exist, insert new account
-			if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email) VALUES (?, ?, ?)')) {
+			if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, activation_code) VALUES (?, ?, ?, ?)')) {
 				// We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
 				$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-				$stmt->bind_param('sss', $_POST['username'], $password, $_POST['email']);
+				$uniqid = uniqid();
+				$stmt->bind_param('ssss', $_POST['username'], $password, $_POST['email'], $uniqid);
 				$stmt->execute();
-				echo 'You have successfully registered! You can now login!';
+				$from    = 'noreply@yourdomain.com';
+				$subject = 'Account Activation Required';
+				$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
+				// Update the activation variable below
+				$activate_link = 'http://yourdomain.com/phplogin/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
+				$message = '<p>Please click the following link to activate your account: <a href="' . $activate_link . '">' . $activate_link . '</a></p>';
+				mail($_POST['email'], $subject, $message, $headers);
+				echo 'Please check your email to activate your account!';
 			} else {
 				// Something is wrong with the SQL statement, so you must check to make sure your accounts table exists with all 3 fields.
 				echo 'Could not prepare statement!';
