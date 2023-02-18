@@ -60,10 +60,7 @@ if (!isset($_SESSION['loggedin'])) {
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
 					<div class="d-flex justify-content-end mb-4"><a class="btn btn-secondary text-uppercase">User: <p id="emailaddr"></p></a></div>
-                    <!-- Post preview-->
-					<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="https://nuvolacloudstorage.auth.eu-central-1.amazoncognito.com/logout?client_id=6v4845f94d33crrc2h6e80ttm&logout_uri=http://cloudstorage-load-balancer-new-1419110948.eu-central-1.elb.amazonaws.com/">Logout</a></div>
-					<!--<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="https://cloudstorage.auth.eu-central-1.amazoncognito.com/logout?client_id=706u2dl32g17n4809n4sg2a24q&logout_uri=https://main.d2cr6f6lf1jopj.amplifyapp.com/">Logout</a></div>-->
-					<!-- Divider-->
+					<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="logout.php">Logout</a></div>
                     <hr class="my-4" />
                     <div class="post-preview">
 						<h2 class="post-title">Show Contents</h2>
