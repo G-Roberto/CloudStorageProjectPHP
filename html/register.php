@@ -1,10 +1,5 @@
 <?php include "../inc/dbinfo.inc"; ?>
-<?php
-	// Import PHPMailer classes into the global namespace
-	use PHPMailer\PHPMailer\PHPMailer;
-	use PHPMailer\PHPMailer\Exception;
-	require '/usr/local/bin/vendor/autoload.php';
-	
+<?php	
 	// Try and connect using the info above.
 	$con = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASS, DATABASE_NAME);
 	if (mysqli_connect_errno()) {
@@ -70,6 +65,11 @@
 	}
 	$con->close();
 	
+	// Import PHPMailer classes into the global namespace
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+	require '/usr/local/bin/vendor/autoload.php';
+	
 	$sender = 'nuvolacloudstorage@gmail.com';
 	$senderName = 'No Reply';
 	$recipient = 'roby.gent@gmail.com';
@@ -98,7 +98,6 @@
 
 		// Specify the message recipients.
 		$mail->addAddress($recipient);
-		// You can also add CC, BCC, and additional To recipients here.
 
 		// Specify the content of the message.
 		$mail->isHTML(true);
