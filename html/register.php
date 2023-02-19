@@ -1,5 +1,9 @@
 <?php include "../inc/dbinfo.inc"; ?>
 <?php
+	// Import PHPMailer classes into the global namespace
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+	require '/usr/local/bin/vendor/autoload.php';
 
 	// Try and connect using the info above.
 	$con = mysqli_connect(DATABASE_HOST, DATABASE_USER, DATABASE_PASS, DATABASE_NAME);
@@ -52,14 +56,9 @@
 				$subject = 'Account Activation Required';
 				$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
 				// Update the activation variable below
-				$activate_link = 'http://yourdomain.com/phplogin/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
+				$activate_link = 'http://ec2-3-72-64-219.eu-central-1.compute.amazonaws.com/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
 				
 				
-				
-				// Import PHPMailer classes into the global namespace
-				use PHPMailer\PHPMailer\PHPMailer;
-				use PHPMailer\PHPMailer\Exception;
-				require '/usr/local/bin/vendor/autoload.php';
 				
 				$sender = 'nuvolacloudstorage@gmail.com';
 				$senderName = 'No Reply';
