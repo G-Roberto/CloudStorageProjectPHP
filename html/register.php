@@ -56,7 +56,7 @@
 				$subject = 'Account Activation Required';
 				$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
 				// Update the activation variable below
-				$activate_link = 'http://ec2-3-72-64-219.eu-central-1.compute.amazonaws.com/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
+				$activate_link = 'http://ec2-18-193-79-169.eu-central-1.compute.amazonaws.com/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
 				
 				
 				
@@ -102,9 +102,7 @@
 					echo "An error occurred. {$e->errorMessage()}", PHP_EOL; //Catch errors from PHPMailer.
 				} catch (Exception $e) {
 					echo "Email not sent! {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
-				}
-				
-				
+				}				
 				
 				echo 'Please check your email to activate your account!';
 			} else {
