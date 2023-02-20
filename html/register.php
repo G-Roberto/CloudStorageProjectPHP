@@ -104,7 +104,7 @@
 					echo "Email not sent! {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
 				}				
 				
-				echo 'Please check your email to activate your account!';
+				header('Location: success.html');
 			} else {
 				// Something is wrong with the SQL statement, so you must check to make sure your accounts table exists with all 3 fields.
 				echo 'Could not prepare statement!';

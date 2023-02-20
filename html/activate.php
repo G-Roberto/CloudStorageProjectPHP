@@ -21,7 +21,6 @@
 					$stmt->bind_param('sss', $newcode, $_GET['email'], $_GET['code']);
 					$stmt->execute();
 					header('Location: activated.html');
-					//echo 'Your account is now activated! You can now <a href="index.html">login</a>!';
 				}
 			} else {
 				echo 'The account is already activated or doesn\'t exist!';
