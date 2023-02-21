@@ -21,7 +21,7 @@
 	$activation = mysqli->query($sql);
 	if ($activation != 'activated') {
 		header('Location: success.html');
-	}
+	} 
 	$con->close();
 ?>
 
