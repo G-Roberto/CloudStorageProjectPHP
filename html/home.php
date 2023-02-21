@@ -209,14 +209,9 @@
 			  
 		function show_contents() {
 
-			// Prepare the access token on the request header
-			var myHeaders = new Headers();
-			myHeaders.append("Authorization", acc_token);
-
 			// Send the GET request
 			var requestOptions = {
 			  method: 'GET',
-			  headers: myHeaders,
 			  redirect: 'follow'
 			};
 
