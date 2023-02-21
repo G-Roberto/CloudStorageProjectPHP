@@ -8,10 +8,10 @@
 		exit;
 	}
 	
-	echo $_SESSION['name'];
-	echo $_SESSION['code'];
+	//echo $_SESSION['name'];
+	//echo $_SESSION['code'];
 	
-	if ($activation != 'activated') {
+	if ($_SESSION['code'] != 'activated') {
 		header('Location: success.html');
 	}
 	
