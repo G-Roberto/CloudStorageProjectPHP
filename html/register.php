@@ -56,7 +56,7 @@
 				$subject = 'Account Activation Required';
 				$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
 				// Update the activation variable below
-				$activate_link = 'http://ec2-18-193-79-169.eu-central-1.compute.amazonaws.com/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
+				$activate_link = 'http://ec2-18-157-165-89.eu-central-1.compute.amazonaws.com/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
 				
 				
 				
@@ -104,6 +104,7 @@
 					echo "Email not sent! {$mail->ErrorInfo}", PHP_EOL; //Catch errors from Amazon SES.
 				}				
 				
+				$_SESSION['username'] = $_POST['username'];
 				header('Location: success.html');
 			} else {
 				// Something is wrong with the SQL statement, so you must check to make sure your accounts table exists with all 3 fields.
