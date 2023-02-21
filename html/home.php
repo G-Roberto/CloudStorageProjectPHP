@@ -67,7 +67,6 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
 					<div class="d-flex justify-content-end mb-4"><a class="btn btn-secondary text-uppercase" href="profile.php">User: <?php echo $_SESSION['name'];?></a></div>
-					<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="logout.php">Logout</a></div>
                     <hr class="my-4" />
                     <div class="post-preview">
 						<h2 class="post-title">Show Contents</h2>
@@ -206,7 +205,7 @@
 	  
 		
 
-		const new_website = 'https://k0nvymm1ye.execute-api.eu-central-1.amazonaws.com/testStage/auth-route'
+		const new_website = 'https://ui03hlfiv0.execute-api.eu-central-1.amazonaws.com/test/showitemsresource'
 			  
 		function show_contents() {
 
