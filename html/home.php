@@ -6,11 +6,7 @@
 	if (!isset($_SESSION['loggedin'])) {
 		header('Location: index.html');
 		exit;
-	}
-	
-	//echo $_SESSION['name'];
-	//echo $_SESSION['code'];
-	
+	}	
 	if ($_SESSION['code'] != 'activated') {
 		header('Location: success.html');
 	}
@@ -69,7 +65,7 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-					<div class="d-flex justify-content-end mb-4"><a class="btn btn-secondary text-uppercase">User: <p id="emailaddr"></p></a></div>
+					<div class="d-flex justify-content-end mb-4"><a class="btn btn-secondary text-uppercase">User: <?php echo $_SESSION['name'];?></a></div>
 					<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="logout.php">Logout</a></div>
                     <hr class="my-4" />
                     <div class="post-preview">
