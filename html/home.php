@@ -205,7 +205,7 @@
 	  
 		
 
-		const new_website = 'https://ui03hlfiv0.execute-api.eu-central-1.amazonaws.com/test/showitemsresource'
+		const new_website = 'https://cvegvoy1l2.execute-api.eu-central-1.amazonaws.com/default/show-items-in-bucket'
 			  
 		function show_contents() {
 
