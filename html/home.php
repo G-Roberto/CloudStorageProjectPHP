@@ -181,7 +181,7 @@
             // Get the pre-signed URL
             const response = await axios({
               method: 'GET',
-              url: API_ENDPOINT + this.filename
+              url: API_ENDPOINT + "<?php echo $_SESSION['name'];?>/" + this.filename
             })
             console.log('Response: ', response)
             console.log('Uploading: ', this.image)
