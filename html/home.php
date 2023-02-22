@@ -199,6 +199,7 @@
             console.log('Result: ', result)
             // Final URL for the user (doesn't need the query string parameters)
             this.uploadURL = response.uploadURL.split('?')[0]
+			<?php header('Location: home.php');?>
           }
         }
       })
@@ -227,7 +228,6 @@
 				for (let i = lastval; i >= 1; i--) {
 					var lmnt = files[i].split('/');
 					if (lmnt[0] == "<?php echo $_SESSION['name'];?>") {
-					//document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><a href="' + WEBSITE + files[i] + '">' + files[i] + '</a><br>';
 						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h3><a href="' + WEBSITE + files[i] + '">' + lmnt[1] + '</a> </h3>' + '<input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + files[i] + "'" + ')"><br>';
 					}
 				}				
@@ -250,6 +250,8 @@
 			  .then(response => response.text())
 			  .then(result => console.log(result))
 			  .catch(error => console.log('error', error));
+			
+			<?php header('Location: home.php');?>
 		}
 		
     </script>		
