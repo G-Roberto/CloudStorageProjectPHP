@@ -199,6 +199,7 @@
             console.log('Result: ', result)
             // Final URL for the user (doesn't need the query string parameters)
             this.uploadURL = response.uploadURL.split('?')[0]
+			sleep(1500);
 			window.location.replace("home.php");
           }
         }
