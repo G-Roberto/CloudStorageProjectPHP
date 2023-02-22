@@ -228,7 +228,7 @@
 					var lmnt = files[i].split('/');
 					if (lmnt[0] == "<?php echo $_SESSION['name'];?>") {
 					//document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><a href="' + WEBSITE + files[i] + '">' + files[i] + '</a><br>';
-						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h3><a href="' + WEBSITE + files[i] + '">' + files[i] + '</a> </h3>' + '<input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + files[i] + "'" + ')"><br>';
+						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h3><a href="' + WEBSITE + files[i] + '">' + lmnt[1] + '</a> </h3>' + '<input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + files[i] + "'" + ')"><br>';
 					}
 				}				
 			  })
