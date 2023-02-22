@@ -199,7 +199,7 @@
             console.log('Result: ', result)
             // Final URL for the user (doesn't need the query string parameters)
             this.uploadURL = response.uploadURL.split('?')[0]
-			<?php header('Location: home.php');?>
+			window.location.replace("home.php");
           }
         }
       })
@@ -251,7 +251,7 @@
 			  .then(result => console.log(result))
 			  .catch(error => console.log('error', error));
 			
-			<?php header('Location: home.php');?>
+			window.location.replace("home.php");
 		}
 		
     </script>		
