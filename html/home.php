@@ -82,7 +82,7 @@
 							<input type="file" class="btn btn-primary text-uppercase" @change="onFileChange">
 						</div>
 						<div v-else>
-							<img :src="image" />
+							<img :src="image" width="500" />
 							</br>
 							<button v-if="!uploadURL" @click="removeImage" class="btn btn-primary text-uppercase">Remove file</button>
 							<button v-if="!uploadURL" @click="uploadImage" class="btn btn-primary text-uppercase">Upload file</button>
