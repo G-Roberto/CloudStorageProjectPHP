@@ -156,22 +156,22 @@
 			methods: {
 				onFileChange (e) {
 					let files = e.target.files || e.dataTransfer.files
-					if (!files.length) return
+					//if (!files.length) return
 					this.createImage(files[0])
 				},
 				createImage (file) {
 					let reader = new FileReader()
 					reader.onload = (e) => {
 						console.log('length: ')
-						// Check if uploaded file is too big
+						// Check if the uploaded file is too big
 						if (e.target.result.length > MAX_IMAGE_SIZE) {
 							return alert('File is loo large.')
 						}
-						// Check if uploaded file is an image
+						// Check if the uploaded file is an image
 						let extensionarray = ("gif jpg jpeg png");
 						let nameextension = file.name.split('.').pop();
-						(if extensionarray.includes(nameextension) == false) {
-							return alert('File is not an image.')
+						if (extensionarray.includes(nameextension) == false) {
+							return
 						}
 						this.image = e.target.result
 						this.filename = file.name
