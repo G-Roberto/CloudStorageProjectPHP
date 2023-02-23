@@ -146,60 +146,64 @@
 	  const WEBSITE = 'https://sam-app-s3uploadbucket-1ut0y5lkfg694.s3.eu-central-1.amazonaws.com/'
 	  var acc_token = '';
 
-      new Vue({
-        el: "#app",
-        data: {
-          image: '',
-          uploadURL: '',
-          filename: ''
-        },
-        methods: {
-          onFileChange (e) {
-            let files = e.target.files || e.dataTransfer.files
-            if (!files.length) return
-            this.createImage(files[0])
-          },
-          createImage (file) {
-            let reader = new FileReader()
-            reader.onload = (e) => {
-                console.log('length: ')
-				if (e.target.result.length > MAX_IMAGE_SIZE) {
-					return alert('File is loo large.')
-				}
-				this.image = e.target.result
-				this.filename = file.name
-            }
-            reader.readAsDataURL(file)
-          },
-          removeImage: function (e) {
-            console.log('Remove clicked')
-            this.image = ''
-            this.filename = ''
-          },
-          uploadImage: async function (e) {
-            console.log('Upload clicked')
-            // Get the pre-signed URL
-            const response = await axios({
-              method: 'GET',
-              url: API_ENDPOINT + "<?php echo $_SESSION['name'];?>/" + this.filename
-            })
-            console.log('Response: ', response)
-            console.log('Uploading: ', this.image)
-            let binary = atob(this.image.split(',')[1])
-            let array = []
-            for (var i = 0; i < binary.length; i++) {
-              array.push(binary.charCodeAt(i))
-            }
-            let blobData = new Blob([new Uint8Array(array)])
-            console.log('Uploading to: ', response.uploadURL)
-            const result = await fetch(response.uploadURL, {
-              method: 'PUT',
-              body: blobData
-            })
-            console.log('Result: ', result)
-            // Final URL for the user (doesn't need the query string parameters)
-            this.uploadURL = response.uploadURL.split('?')[0]
-			window.location.replace("home.php");
+		new Vue({
+			el: "#app",
+			data: {
+				image: '',
+				uploadURL: '',
+				filename: ''
+			},
+			methods: {
+				onFileChange (e) {
+					let files = e.target.files || e.dataTransfer.files
+					if (!files.length) return
+					this.createImage(files[0])
+				},
+				createImage (file) {
+					let reader = new FileReader()
+					reader.onload = (e) => {
+						console.log('length: ')
+						if (e.target.result.length > MAX_IMAGE_SIZE) {
+							return alert('File is loo large.')
+						}
+						
+						nameextension = file.name.split('.').pop();
+						console.log(nameextension);
+						
+						this.image = e.target.result
+						this.filename = file.name
+					}
+					reader.readAsDataURL(file)
+				},
+				removeImage: function (e) {
+					console.log('Remove clicked')
+					this.image = ''
+					this.filename = ''
+				},
+				uploadImage: async function (e) {
+					console.log('Upload clicked')
+					// Get the pre-signed URL
+					const response = await axios({
+						method: 'GET',
+						url: API_ENDPOINT + "<?php echo $_SESSION['name'];?>/" + this.filename
+					})
+					console.log('Response: ', response)
+					console.log('Uploading: ', this.image)
+					let binary = atob(this.image.split(',')[1])
+					let array = []
+					for (var i = 0; i < binary.length; i++) {
+						array.push(binary.charCodeAt(i))
+					}
+					let blobData = new Blob([new Uint8Array(array)])
+					console.log('Uploading to: ', response.uploadURL)
+					const result = await fetch(response.uploadURL, {
+						method: 'PUT',
+						body: blobData
+					})
+					console.log('Result: ', result)
+					// Final URL for the user (doesn't need the query string parameters)
+					this.uploadURL = response.uploadURL.split('?')[0]
+					window.location.replace("home.php");
           }
         }
       })
