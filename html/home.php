@@ -16,7 +16,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-		<script type="text/javascript" src="js/script.js"></script>
 	    <script src="https://unpkg.com/vue@1.0.28/dist/vue.js"></script>
 		<script src="https://unpkg.com/axios@0.2.1/dist/axios.min.js"></script>
         <meta charset="utf-8" />
