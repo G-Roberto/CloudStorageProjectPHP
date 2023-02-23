@@ -69,6 +69,8 @@
 					<div class="d-flex justify-content-end mb-4"><a class="btn btn-secondary text-uppercase" href="profile.php">User: <?php echo $_SESSION['name'];?></a></div>
                     <hr class="my-4" />
                     <div class="post-preview">
+						<h2 class="post-title">Contents</h2>
+						<!--<input type="submit" value="Show" id="btn" class="btn btn-primary text-uppercase" onclick="show_contents()">-->
 						<br><p id="msgpar"></p>	
                     </div>
                     <!-- Divider-->
