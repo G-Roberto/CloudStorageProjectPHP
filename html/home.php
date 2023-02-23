@@ -163,13 +163,16 @@
 					let reader = new FileReader()
 					reader.onload = (e) => {
 						console.log('length: ')
+						// Check if uploaded file is too big
 						if (e.target.result.length > MAX_IMAGE_SIZE) {
 							return alert('File is loo large.')
 						}
-						
-						nameextension = file.name.split('.').pop();
-						console.log(nameextension);
-						
+						// Check if uploaded file is an image
+						let extensionarray = ("gif jpg jpeg png");
+						let nameextension = file.name.split('.').pop();
+						(if extensionarray.includes(nameextension) == false) {
+							return alert('File is not an image.')
+						}
 						this.image = e.target.result
 						this.filename = file.name
 					}
