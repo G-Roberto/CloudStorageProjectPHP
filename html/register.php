@@ -52,9 +52,9 @@
 				$uniqid = uniqid();
 				$stmt->bind_param('ssss', $_POST['username'], $password, $_POST['email'], $uniqid);
 				$stmt->execute();
-				$from    = 'noreply@yourdomain.com';
-				$subject = 'Account Activation Required';
-				$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
+				//$from    = 'noreply@yourdomain.com';
+				//$subject = 'Account Activation Required';
+				//$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
 				// Update the activation variable below
 				$activate_link = 'http://ec2-3-66-162-205.eu-central-1.compute.amazonaws.com/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
 				
@@ -62,7 +62,7 @@
 				
 				$sender = 'nuvolacloudstorage@gmail.com';
 				$senderName = 'No Reply';
-				$recipient = 'roby.gent@gmail.com';
+				$recipient = $_POST['email'];
 				$usernameSmtp = 'AKIA5MFAAP5YNACHDRDI';
 				$passwordSmtp = 'BFY2mgH6631k5IXd+fTdzttK9lNsofJ5O0KgyM+s595n';
 				$configurationSet = '';
