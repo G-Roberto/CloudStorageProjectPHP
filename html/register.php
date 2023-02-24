@@ -58,7 +58,7 @@
 				// Update the activation variable below
 				$activate_link = 'http://ec2-3-66-162-205.eu-central-1.compute.amazonaws.com/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
 				
-				
+				echo $_POST['email'];
 				
 				$sender = 'nuvolacloudstorage@gmail.com';
 				$senderName = 'No Reply';
