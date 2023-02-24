@@ -10,7 +10,6 @@
 	if ($_SESSION['code'] != 'activated') {
 		header('Location: success.html');
 	}
-	
 ?>
 
 <!DOCTYPE html>

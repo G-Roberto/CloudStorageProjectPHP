@@ -105,8 +105,7 @@
 				}				
 				
 				$_SESSION['username'] = $_POST['username'];
-				//header('Location: success.html');
-				echo $_POST['email'];
+				header('Location: success.html');
 			} else {
 				// Something is wrong with the SQL statement, so you must check to make sure your accounts table exists with all 3 fields.
 				echo 'Could not prepare statement!';
