@@ -92,8 +92,6 @@
 					<div class="d-flex mb-4"><a href="register.html" class="btn btn-primary text-uppercase">Change username</a> &nbsp; &nbsp; 
 					<a href="register.html" class="btn btn-primary text-uppercase">Change password</a> &nbsp; &nbsp; 
 					<a href="register.html" class="btn btn-primary text-uppercase">Delete account</a></div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
                     <!-- Pager-->
                 </div>
             </div>
