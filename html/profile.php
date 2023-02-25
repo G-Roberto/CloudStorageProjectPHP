@@ -76,23 +76,22 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="post-preview">
-						Your account details are below:
-						<table>
-							<tr>
-								<td>Username:</td>
-								<td><?=$_SESSION['name']?></td>
-							</tr>
-							<tr>
-								<td>Password:</td>
-								<td><?=$password?></td>
-							</tr>
-							<tr>
-								<td>Email:</td>
-								<td><?=$email?></td>
-							</tr>
-						</table>
-                    </div>
+					<h3>Your account details are below</h3></br>
+					<table>
+						<tr>
+							<td><h4>Username:</h4></td>
+							<td>&nbsp; &nbsp; &nbsp;</td>
+							<td><h4><?=$_SESSION['name']?></h4></td>
+						</tr>
+						<tr>
+							<td><h4>Email:</h4></td>
+							<td>&nbsp; &nbsp; &nbsp;</td>
+							<td><h4><?=$email?></h4></td>
+						</tr>
+					</table></br>
+					<div class="d-flex mb-4"><a href="register.html" class="btn btn-primary text-uppercase">Change username</a> &nbsp; &nbsp; 
+					<a href="register.html" class="btn btn-primary text-uppercase">Change password</a> &nbsp; &nbsp; 
+					<a href="register.html" class="btn btn-primary text-uppercase">Delete account</a></div>
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Pager-->
