@@ -52,14 +52,9 @@
 				$uniqid = uniqid();
 				$stmt->bind_param('ssss', $_POST['username'], $password, $_POST['email'], $uniqid);
 				$stmt->execute();
-				//$from    = 'noreply@yourdomain.com';
-				//$subject = 'Account Activation Required';
-				//$headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
-				// Update the activation variable below
+				
+				
 				$activate_link = 'http://ec2-3-71-41-184.eu-central-1.compute.amazonaws.com/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
-				
-				
-				
 				$sender = 'nuvolacloudstorage@gmail.com';
 				$senderName = 'No Reply';
 				$recipient = $_POST['email'];
