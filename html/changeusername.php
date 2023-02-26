@@ -35,7 +35,8 @@
 					// We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
 					$stmt->bind_param('ss', $_POST['newusername'], $_POST['username']);
 					$stmt->execute();
-					header('Location: profile.php');
+					session_destroy();
+					header('Location: login.html');
 				}
 			} else {
 				// Incorrect password

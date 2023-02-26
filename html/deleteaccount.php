@@ -30,11 +30,10 @@
 			if (password_verify($_POST['password'], $password)) {
 				// Verification success! User has logged-in!
 				// Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
-				if ($stmt = $con->prepare("UPDATE accounts SET password = ? WHERE username = ?")) {
+				if ($stmt = $con->prepare("DELETE FROM accounts WHERE username = ?")) {
 					
 					// We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
-					$newpassword = password_hash($_POST['newpassword'], PASSWORD_DEFAULT);
-					$stmt->bind_param('ss', $newpassword, $_POST['username']);
+					$stmt->bind_param('s', $_POST['username']);
 					$stmt->execute();
 					session_destroy();
 					header('Location: login.html');
