@@ -44,6 +44,7 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="home.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="logout.php">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="profile.php"><?php echo $_SESSION['name'];?></a></li>
                     </ul>
                 </div>
             </div>
@@ -65,7 +66,7 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-					<div class="d-flex justify-content-end mb-4"><a class="btn btn-secondary text-uppercase" href="profile.php">User: <?php echo $_SESSION['name'];?></a></div>
+					<!--<div class="d-flex justify-content-end mb-4"><a class="btn btn-secondary text-uppercase" href="profile.php">User: ?php echo $_SESSION['name'];?</a></div>-->
                     <hr class="my-4" />
                     <div class="post-preview">
 						<h2 class="post-title">Contents</h2>
