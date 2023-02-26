@@ -37,7 +37,8 @@
 					//$stmt->bind_param('ssss', $newpassword, $_POST['username']);
 					$stmt->execute();
 					header('Location: success.html');
-				} else {
+				}
+			} else {
 				// Incorrect password
 				echo 'Incorrect username and/or password!';
 			}
@@ -45,7 +46,6 @@
 			// Incorrect username
 			echo 'Incorrect username and/or password!';
 		}
-
-		$stmt->close();
 	}
+	$stmt->close();
 ?>
