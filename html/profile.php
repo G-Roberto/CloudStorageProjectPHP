@@ -90,8 +90,8 @@
 							<td><h4><?=$email?></h4></td>
 						</tr>
 					</table></br>
-					<div class="d-flex mb-4"><a href="changepassword.html" class="btn btn-primary text-uppercase">Change username</a> &nbsp; &nbsp; 
-					<a href="changeusername.html" class="btn btn-primary text-uppercase">Change password</a> &nbsp; &nbsp; 
+					<div class="d-flex mb-4"><a href="changeusername.html" class="btn btn-primary text-uppercase">Change username</a> &nbsp; &nbsp; 
+					<a href="changepassword.html" class="btn btn-primary text-uppercase">Change password</a> &nbsp; &nbsp; 
 					<a href="deleteaccount.html" class="btn btn-primary text-uppercase">Delete account</a></div>
                     <!-- Pager-->
                 </div>
