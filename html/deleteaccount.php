@@ -36,7 +36,7 @@
 					$stmt->bind_param('s', $_POST['username']);
 					$stmt->execute();
 					session_destroy();
-					header('Location: login.html');
+					header('Location: index.html');
 				}
 			} else {
 				// Incorrect password
