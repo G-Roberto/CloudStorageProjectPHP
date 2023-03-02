@@ -122,15 +122,22 @@
 		
 		<script>			
 			function print(filename) {
-							var requestOptions = {
-			  method: 'GET',
-			  redirect: 'follow'
-			};
+				var myHeaders = new Headers();
+				myHeaders.append("Access-Control-Allow-Origin", "*");
+				myHeaders.append("Access-Control-Allow-Headers", "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token");
+				myHeaders.append("Access-Control-Allow-Credentials", "true");
+				myHeaders.append("Content-Type", "application/json");
 
-			fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + filename, requestOptions)
-			  .then(response => response.text())
-			  .then(result => console.log(result))
-			  .catch(error => console.log('error', error));
+				var requestOptions = {
+				  method: 'GET',
+				  headers: myHeaders,
+				  redirect: 'follow'
+				};
+
+				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=Roberto", requestOptions)
+				  .then(response => response.text())
+				  .then(result => console.log(result))
+				  .catch(error => console.log('error', error));
 			}
 			
 		</script>		
