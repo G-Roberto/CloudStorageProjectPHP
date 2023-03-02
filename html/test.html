@@ -124,7 +124,8 @@
 			function print(filename) {
 				var myHeaders = new Headers();
 				myHeaders.append("Access-Control-Allow-Origin", "*");
-				myHeaders.append("Access-Control-Allow-Headers", "*");
+				myHeaders.append("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+				myHeaders.append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
 				myHeaders.append("Access-Control-Allow-Credentials", "true");
 				myHeaders.append("Content-Type", "application/json");
 
