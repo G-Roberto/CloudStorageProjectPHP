@@ -123,9 +123,9 @@
 		<script>			
 			function print1() {
 				var myHeaders = new Headers();
-				myHeaders.append("Accept", "*/*");
-				myHeaders.append("Accept-Encoding", "gzip, deflate, br");
-				myHeaders.append("Connection", "keep-alive");
+				myHeaders.append("Access-Control-Allow-Origin", "*");
+				myHeaders.append("Access-Control-Allow-Headers", "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token");
+				myHeaders.append("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
 
 				var requestOptions = {
 				  method: 'GET',
