@@ -122,8 +122,14 @@
 		
 		<script>			
 			function print(filename) {
+				var myHeaders = new Headers();
+				myHeaders.append("Accept", "*/*");
+				myHeaders.append("Accept-Encoding", "gzip, deflate, br");
+				myHeaders.append("Connection", "keep-alive");
+
 				var requestOptions = {
 				  method: 'GET',
+				  headers: myHeaders,
 				  redirect: 'follow'
 				};
 
