@@ -124,28 +124,16 @@
 		
 		<script>			
 			function searchItems(name) {
-				const WEBSITE = 'https://sam-app-s3uploadbucket-1ut0y5lkfg694.s3.eu-central-1.amazonaws.com/';
 				var requestOptions = {
-				  method: 'GET',
+				  method: 'POST',
 				  redirect: 'follow'
 				};
 
-				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + name, requestOptions)
+				fetch("https://0c3ycouajc.execute-api.eu-central-1.amazonaws.com/default/add-item-to-dynamodb?usname=Roberto&flname=are.jpg", requestOptions)
 				  .then(response => response.text())
-				  
-				  .then(result => {
-					console.log(result);
-					var files = result.toString().split('"filename":"');
-					for (let i = files.length - 1; i >= 1; i--) {
-						filename = files[i].split('","')[0];
-						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h4><a href="accessimg.php?' + name + "/" + filename + '">' + filename + '</a></h4>';
-						//document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<img src="' + WEBSITE + name + "/" + filename + '" width="300"/>';
-						//document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h3><a href="' + WEBSITE + name + "/" + filename + '">' + filename + '</a> </h3>' + '<input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + name + "/" + filename + "'" + ')"></br></br>';
-					}
-				  })
-				  
+				  .then(result => console.log(result))
 				  .catch(error => console.log('error', error));
-			}
+							}
 			
 		</script>		
     </body>
