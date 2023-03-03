@@ -133,7 +133,7 @@
 
 				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + name, requestOptions)
 				  .then(response => response.text())
-				  .then(result => resulttext = result))
+				  .then(result => resulttext = result)
 				  .catch(error => console.log('error', error));
 				  
 				console.log("resulttext: " + resulttext);
