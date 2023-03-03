@@ -37,5 +37,5 @@
 
 	// Output the presigned URL
 	echo $presignedUrl;
-	header('Location: ' + $presignedUrl);
+	header('Location: '.$presignedUrl);
 ?>
