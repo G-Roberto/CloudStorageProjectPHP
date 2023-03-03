@@ -129,11 +129,15 @@
 				  redirect: 'follow'
 				};
 
+			var resulttext;
+
 				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + name, requestOptions)
 				  .then(response => response.text())
-				  .then(result => console.log(result))
+				  .then(result => resulttext = result))
 				  .catch(error => console.log('error', error));
 			}
+			
+			console.log("resulttext: " + resulttext);
 			
 		</script>		
     </body>
