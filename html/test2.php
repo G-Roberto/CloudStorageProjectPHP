@@ -9,7 +9,7 @@
 	$expiration = 60; // 1 minute
 
 	// Replace with your own access key, secret key, and region
-	$access_key = 'Roberto+1-at-919458578288';
+	$access_key = 'aRoberto+1-at-919458578288';
 	$secret_key = 'PKWC6gf/IfAs23G7GzIbUJYfrSh/12zjQmhTs+HQqdU=';
 	$region = 'eu-central-1';
 
