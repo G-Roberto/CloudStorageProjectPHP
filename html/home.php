@@ -200,43 +200,32 @@
 						// Final URL for the user (doesn't need the query string parameters)
 						this.uploadURL = response.uploadURL.split('?')[0]
 						window.location.replace("home.php");
-			  }
-			}
-		  })
+					}
+				}
+			})
 		  
 			
 
-			const new_website = 'https://ui03hlfiv0.execute-api.eu-central-1.amazonaws.com/test/showitemsresource'
-				  
 			function show_contents() {
 
-				// Send the GET request
 				var requestOptions = {
 				  method: 'GET',
 				  redirect: 'follow'
 				};
 
-				// Take the values returned from the lambda
-				// function (i.e. the list of files) and print
-				// them on the web page in a readable format
-				fetch(new_website, requestOptions)
+				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + name, requestOptions)
 				  .then(response => response.text())
+				  
 				  .then(result => {
-					var files = result.toString().split('\\\",\\\"');
-					const lastval = files.length - 1;
-					files[lastval] = files[lastval].split('\\\"]\"')[0];
-					for (let i = lastval; i >= 1; i--) {
-						var lmnt = files[i].split('/');
-						if (lmnt[0] == "<?php echo $_SESSION['name'];?>") {
-							document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<img src="' + WEBSITE + files[i] + '" width="300"/>'
-							document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h3><a href="' + WEBSITE + files[i] + '">' + lmnt[1] + '</a> </h3>' + '<input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + files[i] + "'" + ')"></br></br>';
-						}
-					}				
+					console.log(result);
+					var files = result.toString().split('"filename":"');
+					for (let i = files.length - 1; i >= 1; i--) {
+						filename = files[i].split('","')[0];
+						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h4><a href="accessimg.php?' + name + "/" + filename + '">' + filename + '</a></h4> <input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + name + "/" + filename + "'" + ')"></br></br>';
+					}
 				  })
+				  
 				  .catch(error => console.log('error', error));
-				
-				btn = document.getElementById('btn');
-				btn.style.display = 'none';
 
 			}
 			
