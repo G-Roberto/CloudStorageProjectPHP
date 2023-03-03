@@ -129,7 +129,7 @@
 				  redirect: 'follow'
 				};
 
-				fetch("https://0c3ycouajc.execute-api.eu-central-1.amazonaws.com/default/add-item-to-dynamodb?usname=Roberto&flname=are.jpg", requestOptions)
+				fetch("https://0c3ycouajc.execute-api.eu-central-1.amazonaws.com/default/add-item-to-dynamodb?usname=Roberto&flname=ae55.jpg", requestOptions)
 				  .then(response => response.text())
 				  .then(result => console.log(result))
 				  .catch(error => console.log('error', error));
