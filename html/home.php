@@ -10,6 +10,8 @@
 	if ($_SESSION['code'] != 'activated') {
 		header('Location: success.html');
 	}
+	
+	$currusername = $_SESSION['name'];
 ?>
 
 <!DOCTYPE html>
@@ -213,7 +215,7 @@
 				  redirect: 'follow'
 				};
 
-				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + name, requestOptions)
+				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + "<?php echo $currusername ?>", requestOptions)
 				  .then(response => response.text())
 				  
 				  .then(result => {
