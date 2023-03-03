@@ -1,5 +1,5 @@
+<?php include "../inc/creds.inc"; ?>
 <?php
-
 	require '/usr/local/bin/vendor/autoload.php'; // Include the SDK using Composer
 
 	use Aws\S3\S3Client;
@@ -10,8 +10,8 @@
 		'version' => 'latest',
 		'region' => 'eu-central-1', // Replace with the appropriate region
 		'credentials' => [
-			'key' => 'AKIA5MFAAP5YCGIHN2XR',
-			'secret' => 'fw3uCxitsOtNYPtEiTeQKNqyGjfpre5+xwTzU2Yo',
+			'key' => KKEY,
+			'secret' => SSECRET,
 		],
 	]);
 
@@ -37,5 +37,4 @@
 
 	// Output the presigned URL
 	echo $presignedUrl;
-
 ?>
