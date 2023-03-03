@@ -1,6 +1,6 @@
 <?php
 
-	require 'vendor/autoload.php'; // Include the SDK using Composer
+	require '/usr/local/bin/vendor/autoload.php'; // Include the SDK using Composer
 
 	use Aws\S3\S3Client;
 	use Aws\S3\Exception\S3Exception;
