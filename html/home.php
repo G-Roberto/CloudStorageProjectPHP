@@ -227,7 +227,7 @@
 					var files = result.toString().split('"filename":"');
 					for (let i = files.length - 1; i >= 1; i--) {
 						filename = files[i].split('","')[0];
-						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h4><a href="accessimg.php?' + name + "/" + filename + '">' + filename + '</a></h4> <input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + name + "/" + filename + "'" + ')"></br></br>';
+						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h4><a href="accessimg.php?' + name + "/" + filename + '">' + filename + '</a></h4> <input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + name + "', '" + filename + "'" + ')"></br></br>';
 					}
 				  })
 				  
@@ -237,13 +237,15 @@
 			
 			
 			
-			function delete_file(filename) {
+			function delete_file(name, filename) {
+				remFromDatabase(name, filename);
+						
 				var requestOptions = {
 					method: 'DELETE',
 					redirect: 'follow'
 				};
 
-				fetch("https://47ttwbrs8f.execute-api.eu-central-1.amazonaws.com/default/deleteitem?itemKey=" + filename, requestOptions)
+				fetch("https://47ttwbrs8f.execute-api.eu-central-1.amazonaws.com/default/deleteitem?itemKey=" + name + "/" + filename, requestOptions)
 				  .then(response => response.text())
 				  .then(result => console.log(result))
 				  .catch(error => console.log('error', error));
@@ -260,6 +262,20 @@
 				};
 
 				fetch("https://0c3ycouajc.execute-api.eu-central-1.amazonaws.com/default/add-item-to-dynamodb?usname=" + usname + "&flname=" + flname, requestOptions)
+				  .then(response => response.text())
+				  .then(result => console.log(result))
+				  .catch(error => console.log('error', error));
+			}
+			
+			
+			
+			function remFromDatabase(usname, flname) {
+				var requestOptions = {
+				  method: 'GET',
+				  redirect: 'follow'
+				};
+
+				fetch("https://u0sw1444v3.execute-api.eu-central-1.amazonaws.com/default/delete-item-from-dynamodb?usname=" + usname + "&flname=" + flname, requestOptions)
 				  .then(response => response.text())
 				  .then(result => console.log(result))
 				  .catch(error => console.log('error', error));
