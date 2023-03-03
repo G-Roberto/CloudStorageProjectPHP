@@ -9,8 +9,8 @@
 	$expiration = 60; // 1 minute
 
 	// Replace with your own access key, secret key, and region
-	$access_key = 'aRoberto+1-at-919458578288';
-	$secret_key = 'PKWC6gf/IfAs23G7GzIbUJYfrSh/12zjQmhTs+HQqdU=';
+	$access_key = 'Roberto-at-919458578288';
+	$secret_key = 'VccNdzOv4U7TW01NxU3Y7ZegVpF5PlgbcCepciLM5Qw=';
 	$region = 'eu-central-1';
 
 	// Replace with your S3 bucket name and object key
