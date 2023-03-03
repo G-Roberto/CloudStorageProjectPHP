@@ -15,7 +15,7 @@
 		],
 	]);
 
-	// Set the bucket name and object key
+	// Set the bucket name and object key	
 	$bucket = 'sam-app-s3uploadbucket-1ut0y5lkfg694';
 	$key = 'Roberto/test.jpg';
 
@@ -36,6 +36,7 @@
 	$presignedUrl = (string) $request->getUri();
 
 	// Output the presigned URL
-	echo $presignedUrl;
-	header('Location: '.$presignedUrl);
+	
+	echo explode("?", $_SERVER['REQUEST_URI'])[1];
+	//header('Location: '.$presignedUrl);
 ?>
