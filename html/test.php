@@ -124,6 +124,7 @@
 		
 		<script>			
 			function searchItems(name) {
+				const WEBSITE = 'https://sam-app-s3uploadbucket-1ut0y5lkfg694.s3.eu-central-1.amazonaws.com/';
 				var requestOptions = {
 				  method: 'GET',
 				  redirect: 'follow'
