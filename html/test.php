@@ -130,10 +130,13 @@
 				};
 
 				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + name, requestOptions)
-				  .then(response => response.text())
+				  .then(response =>
+					response.text();
+					console.log("test1");
+				  )
 				  .then(result => 
 					console.log(result);
-					console.log("test");
+					console.log("test2");
 				  )
 				  .catch(error => console.log('error', error));
 			}
