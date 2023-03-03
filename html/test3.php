@@ -1,4 +1,4 @@
-<?php include "../inc/creds.inc"; ?>
+<?php include "../.gitignore"; ?>
 <?php
 	require '/usr/local/bin/vendor/autoload.php'; // Include the SDK using Composer
 
@@ -27,12 +27,12 @@
 		exit();
 	}
 
-	// Generate a presigned URL with a 1-hour expiration time
+	// Generate a presigned URL with a 1-minute expiration time
 	$cmd = $client->getCommand('GetObject', [
 		'Bucket' => $bucket,
 		'Key' => $key,
 	]);
-	$request = $client->createPresignedRequest($cmd, '+1 hour');
+	$request = $client->createPresignedRequest($cmd, '+1 minute');
 	$presignedUrl = (string) $request->getUri();
 
 	// Output the presigned URL
