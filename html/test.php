@@ -138,7 +138,7 @@
 					var files = result.toString().split('"filename":"');
 					for (let i = files.length - 1; i >= 1; i--) {
 						filename = files[i].split('","')[0];
-						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h4>filename</h4>';
+						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h4><a href="accessimg.php?"' + name + "/" + filename + '">' + filename + '</a></h4>';
 						//document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<img src="' + WEBSITE + name + "/" + filename + '" width="300"/>';
 						//document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h3><a href="' + WEBSITE + name + "/" + filename + '">' + filename + '</a> </h3>' + '<input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + name + "/" + filename + "'" + ')"></br></br>';
 					}
