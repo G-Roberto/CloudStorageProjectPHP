@@ -215,7 +215,9 @@
 				  redirect: 'follow'
 				};
 
-				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + "<?php echo $currusername ?>", requestOptions)
+				name = "<?php echo $currusername ?>";
+
+				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + name, requestOptions)
 				  .then(response => response.text())
 				  
 				  .then(result => {
