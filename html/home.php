@@ -183,7 +183,7 @@
 						// Get the pre-signed URL
 						const response = await axios({
 							method: 'GET',
-							url: API_ENDPOINT + "<?php echo $_SESSION['name'];?>/" + this.filename
+							url: API_ENDPOINT + "<?php echo $currusername; ?>/" + this.filename
 						})
 						console.log('Response: ', response)
 						console.log('Uploading: ', this.image)
@@ -200,7 +200,9 @@
 						})
 						console.log('Result: ', result)
 						// Final URL for the user (doesn't need the query string parameters)
-						this.uploadURL = response.uploadURL.split('?')[0]
+						this.uploadURL = response.uploadURL.split('?')[0];
+						console.log("usname: " + "<?php echo $currusername; ?>" + "; flname: " + this.filename);
+						addToDatabase("<?php echo $currusername; ?>", this.filename);
 						window.location.replace("home.php");
 					}
 				}
@@ -234,6 +236,7 @@
 			}
 			
 			
+			
 			function delete_file(filename) {
 				var requestOptions = {
 					method: 'DELETE',
@@ -246,6 +249,20 @@
 				  .catch(error => console.log('error', error));
 				
 				window.location.replace("home.php");
+			}
+			
+			
+			
+			function addToDatabase(usname, flname) {
+				var requestOptions = {
+				  method: 'POST',
+				  redirect: 'follow'
+				};
+
+				fetch("https://0c3ycouajc.execute-api.eu-central-1.amazonaws.com/default/add-item-to-dynamodb?usname=" + usname + "&flname=" + flname, requestOptions)
+				  .then(response => response.text())
+				  .then(result => console.log(result))
+				  .catch(error => console.log('error', error));
 			}
 		</script>		
     </body>
