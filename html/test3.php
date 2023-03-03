@@ -1,4 +1,4 @@
-<?php include "../.gitignore"; ?>
+<?php include "../inc/creds.inc"; ?>
 <?php
 	require '/usr/local/bin/vendor/autoload.php'; // Include the SDK using Composer
 
