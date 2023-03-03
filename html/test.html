@@ -10,6 +10,8 @@
 	if ($_SESSION['code'] != 'activated') {
 		header('Location: success.html');
 	}
+	
+	$currusername = $_SESSION['name'];
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +72,7 @@
                     <hr class="my-4" />
                     <div class="post-preview">
 						<h2 class="post-title">Contents</h2>
-						<input type="submit" value="Show" id="btn" class="btn btn-primary text-uppercase" onclick=\"searchItems("<?php echo $_SESSION['name'];?>")\">
+						<input type="submit" value="Show" id="btn" class="btn btn-primary text-uppercase" onclick="searchItems('<?php echo $currusername;?>')">
 						<br><p id="msgpar"></p>	
                     </div>
                     <!-- Divider-->
