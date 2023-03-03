@@ -17,7 +17,7 @@
 
 	// Set the bucket name and object key	
 	$bucket = 'sam-app-s3uploadbucket-1ut0y5lkfg694';
-	$key = 'Roberto/test.jpg';
+	$key = explode("?", $_SERVER['REQUEST_URI'])[1];
 
 	// Check if the access key and secret key have access to the bucket
 	try {
@@ -37,6 +37,6 @@
 
 	// Output the presigned URL
 	
-	echo explode("?", $_SERVER['REQUEST_URI'])[1];
-	//header('Location: '.$presignedUrl);
+	echo $presignedUrl;
+	header('Location: '.$presignedUrl);
 ?>
