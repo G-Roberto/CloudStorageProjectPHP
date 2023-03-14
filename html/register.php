@@ -54,7 +54,7 @@
 				$stmt->execute();
 				
 				
-				$activate_link = 'http://ec2-54-93-33-5.eu-central-1.compute.amazonaws.com/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
+				$activate_link = 'http://d3iq8lftgsccg6.cloudfront.net/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
 				$sender = 'nuvolacloudstorage@gmail.com';
 				$senderName = 'No Reply';
 				$recipient = $_POST['email'];
