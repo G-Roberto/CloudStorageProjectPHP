@@ -8,7 +8,7 @@
 	// Set up the S3 client
 	$client = new S3Client([
 		'version' => 'latest',
-		'region' => 'eu-central-1', // Replace with the appropriate region
+		'region' => RREGION, // Replace with the appropriate region
 		'credentials' => [
 			'key' => KKEY,
 			'secret' => SSECRET,

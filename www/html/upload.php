@@ -21,7 +21,7 @@
         <!-- Core theme CSS -->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body onload="javascript:show_contents();">
+    <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -56,11 +56,6 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <hr class="my-4" />
-                    <div class="post-preview">
-						<h2 class="post-title">Contents</h2>
-						<br><p id="msgpar"></p>	
-                    </div>
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Upload-->
@@ -72,6 +67,11 @@
 						<div>
 							<button onclick="uploadFile()" class="btn btn-primary text-uppercase">Upload file</button>
 						</div>
+                    </div>
+					<!-- Divider-->
+                    <hr class="my-4" />
+                    <div class="post-preview">
+						<div class="d-flex justify-content-center mb-4"><a href="home.php" class="btn btn-primary text-uppercase">Go back to contents</a>
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
@@ -138,7 +138,7 @@
 							if (xhr.readyState === 4) {
 								if (xhr.status === 200) {
 									console.log(`Chunk uploaded successfully: ${xhr.responseText}`);
-									window.location.replace("home.php");
+									window.location.replace("upload.php");
 								} else {
 									console.error(`Error uploading chunk: ${xhr.responseText}`);
 								}
@@ -159,50 +159,6 @@
 					start = end;
 					end = start + chunkSize;
 				}
-			}
-		  
-			
-
-			function show_contents() {
-
-				var requestOptions = {
-				  method: 'GET',
-				  redirect: 'follow'
-				};
-
-				name = "<?php echo $currusername ?>";
-
-				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + name, requestOptions)
-				  .then(response => response.text())
-				  
-				  .then(result => {
-					console.log(result);
-					var files = result.toString().split('"filename":"');
-					for (let i = files.length - 1; i >= 1; i--) {
-						filename = files[i].split('","')[0];
-						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h4><a href="accessimg.php?' + name + "/" + filename + '">' + filename + '</a></h4> <input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + name + "', '" + filename + "'" + ')"></br></br>';
-					}
-				  })
-				  
-				  .catch(error => console.log('error', error));
-
-			}
-			
-			
-			
-			function delete_file(name, filename) {
-						
-				var requestOptions = {
-					method: 'DELETE',
-					redirect: 'follow'
-				};
-
-				fetch("https://47ttwbrs8f.execute-api.eu-central-1.amazonaws.com/default/deleteitem?itemKey=" + name + "/" + filename, requestOptions)
-				  .then(response => response.text())
-				  .then(result => console.log(result))
-				  .catch(error => console.log('error', error));
-				
-				window.location.replace("home.php");
 			}
 		</script>		
     </body>
