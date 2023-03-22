@@ -38,11 +38,13 @@
 				header('Location: home.php');
 			} else {
 				// Incorrect password
-				echo 'Incorrect username and/or password!';
+				$_SESSION['errorname'] = 'Incorrect password!';
+				header('Location: error.php');
 			}
 		} else {
 			// Incorrect username
-			echo 'Incorrect username and/or password!';
+			$_SESSION['errorname'] = 'Incorrect username!';
+			header('Location: error.php');
 		}
 
 		$stmt->close();

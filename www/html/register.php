@@ -42,7 +42,8 @@
 		// Store the result so we can check if the account exists in the database.
 		if ($stmt->num_rows > 0) {
 			// Username already exists
-			echo 'Username exists, please choose another!';
+			$_SESSION['errorname'] = 'Username exists, please choose another!';
+			header('Location: error.php');
 		} else {
 			// Username doesn't exist, insert new account
 			if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, activation_code) VALUES (?, ?, ?, ?)')) {
@@ -103,13 +104,17 @@
 				header('Location: success.html');
 			} else {
 				// Something is wrong with the SQL statement, so you must check to make sure your accounts table exists with all 3 fields.
-				echo 'Could not prepare statement!';
+				$con->close();
+				$_SESSION['errorname'] = 'Error: could not prepare statement.';
+				header('Location: error.php');
 			}
 		}
 		$stmt->close();
 	} else {
 		// Something is wrong with the SQL statement, so you must check to make sure your accounts table exists with all 3 fields.
-		echo 'Could not prepare statement!';
+		$con->close();
+		$_SESSION['errorname'] = 'Error: could not prepare statement.';
+		header('Location: error.php');
 	}
 	$con->close();
 	

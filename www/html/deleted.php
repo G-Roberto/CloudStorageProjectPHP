@@ -21,7 +21,7 @@
         <!-- Core theme CSS -->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body onload="javascript:show_contents();">
+    <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -56,16 +56,16 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-					 <!-- Divider-->
+                    <!-- Divider-->
                     <hr class="my-4" />
-                    <div class="post-preview">
-						<h2 class="post-title">Contents</h2>
-						<br><p id="msgpar"></p>	
+                    <!-- Upload-->
+                    <div class="post-preview" id="app">
+						<h2 class="post-title">File deleted successfully.</h2>
                     </div>
 					<!-- Divider-->
                     <hr class="my-4" />
                     <div class="post-preview">
-						<div class="d-flex justify-content-center mb-4"><a href="upload.php" class="btn btn-primary text-uppercase">Upload a file</a>
+						<div class="d-flex justify-content-center mb-4"><a href="home.php" class="btn btn-primary text-uppercase">Go back to contents</a>
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
@@ -109,49 +109,7 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-		
-		<script>
-			function show_contents() {
-				var requestOptions = {
-				  method: 'GET',
-				  redirect: 'follow'
-				};
-
-				name = "<?php echo $currusername ?>";
-
-				fetch("https://j08lhrjnlk.execute-api.eu-central-1.amazonaws.com/default/get-items-in-bucket?searchedname=" + name, requestOptions)
-				  .then(response => response.text())
-				  
-				  .then(result => {
-					console.log(result);
-					var files = result.toString().split('"filename":"');
-					for (let i = files.length - 1; i >= 1; i--) {
-						filename = files[i].split('","')[0];
-						document.getElementById("msgpar").innerHTML = document.getElementById("msgpar").innerHTML + '<br><h4><a href="accessimg.php?' + name + "/" + filename + '">' + filename + '</a></h4> <input type="submit" value="Delete" id="delbtn" onclick="delete_file(' + "'" + name + "', '" + filename + "'" + ')"></br></br>';
-					}
-				  })
-				  
-				  .catch(error => console.log('error', error));
-			}
-			
-			
-						
-			function delete_file(name, filename) {
-						
-				var requestOptions = {
-					method: 'DELETE',
-					redirect: 'follow'
-				};
-
-				fetch("https://47ttwbrs8f.execute-api.eu-central-1.amazonaws.com/default/deleteitem?itemKey=" + name + "/" + filename, requestOptions)
-				  .then(response => response.text())
-				  .then(result => console.log(result))
-				  .catch(error => console.log('error', error));
-				
-				window.location.replace("deleted.php");
-			}
-		</script>		
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>		
     </body>
 </html>
 
